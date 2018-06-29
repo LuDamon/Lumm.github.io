@@ -1,9 +1,14 @@
 /* global NexT: true */
 
 // $(document).ready(function () {
-// <script src="http://cdn.bootcss.com/instantsearch.js/1.5.1/instantsearch.js"></script>
+<script src="http://cdn.bootcss.com/instantsearch.js/1.5.1/instantsearch.js">
+
+</script>
 
 // <script type="text/javascript">
+
+<script type="text/javascript">
+    
 $(document).ready(function () {
   var algoliaSettings = CONFIG.algolia;
   var isAlgoliaSettingsValid = algoliaSettings.applicationID &&
@@ -249,3 +254,7 @@ $(document).ready(function () {
     });
   });
 </script>
+
+// <script type="text/javascript">
+  
+// </script>
