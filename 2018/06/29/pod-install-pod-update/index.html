@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="原文链接：https://guides.cocoapods.org/using/pod-install-vs-update.html  译者：Soledad 微博：@CaiYue_  介绍很多人刚接触 CocoaPods 时都会觉得 pod install 只在第一次给项目配置 CocoaPods 的时候使用，pod update 只在之后使用。然而 压根就不是那样的。（译者注：原文中还提到这里的">
+<meta name="description" content="原文链接：https://guides.cocoapods.org/using/pod-install-vs-update.html  译者：Soledad、DamonLu 微博：@CaiYue_  介绍很多人刚接触 CocoaPods 时都会觉得 pod install 只在第一次给项目配置 CocoaPods 的时候使用，pod update 只在之后使用。然而 压根就不是那样的。（译者注：原">
 <meta name="keywords" content="cocoPods">
 <meta property="og:type" content="article">
 <meta property="og:title" content="pod install &amp; pod update">
 <meta property="og:url" content="http://yoursite.com/2018/06/29/pod-install-pod-update/index.html">
 <meta property="og:site_name" content="Welcom">
-<meta property="og:description" content="原文链接：https://guides.cocoapods.org/using/pod-install-vs-update.html  译者：Soledad 微博：@CaiYue_  介绍很多人刚接触 CocoaPods 时都会觉得 pod install 只在第一次给项目配置 CocoaPods 的时候使用，pod update 只在之后使用。然而 压根就不是那样的。（译者注：原文中还提到这里的">
+<meta property="og:description" content="原文链接：https://guides.cocoapods.org/using/pod-install-vs-update.html  译者：Soledad、DamonLu 微博：@CaiYue_  介绍很多人刚接触 CocoaPods 时都会觉得 pod install 只在第一次给项目配置 CocoaPods 的时候使用，pod update 只在之后使用。然而 压根就不是那样的。（译者注：原">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-29T02:15:23.650Z">
+<meta property="og:updated_time" content="2018-06-29T03:17:59.908Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pod install &amp; pod update">
-<meta name="twitter:description" content="原文链接：https://guides.cocoapods.org/using/pod-install-vs-update.html  译者：Soledad 微博：@CaiYue_  介绍很多人刚接触 CocoaPods 时都会觉得 pod install 只在第一次给项目配置 CocoaPods 的时候使用，pod update 只在之后使用。然而 压根就不是那样的。（译者注：原文中还提到这里的">
+<meta name="twitter:description" content="原文链接：https://guides.cocoapods.org/using/pod-install-vs-update.html  译者：Soledad、DamonLu 微博：@CaiYue_  介绍很多人刚接触 CocoaPods 时都会觉得 pod install 只在第一次给项目配置 CocoaPods 的时候使用，pod update 只在之后使用。然而 压根就不是那样的。（译者注：原">
 
 
 
@@ -336,7 +336,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  908
+                  1,832
                 </span>
               
 
@@ -352,7 +352,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  7
                 </span>
               
             </div>
@@ -375,7 +375,7 @@
       
         <p>原文链接：<a href="https://link.jianshu.com/?t=https://guides.cocoapods.org/using/pod-install-vs-update.html" target="_blank" rel="noopener">https://guides.cocoapods.org/using/pod-install-vs-update.html</a></p>
 <ul>
-<li>译者：<a href="https://link.jianshu.com/?t=http://soledad.me" target="_blank" rel="noopener">Soledad</a></li>
+<li>译者：<a href="https://link.jianshu.com/?t=http://soledad.me" target="_blank" rel="noopener">Soledad</a>、<a href="https://ludamon.github.io/" target="_blank" rel="noopener">DamonLu</a></li>
 <li>微博：<a href="https://link.jianshu.com/?t=http://weibo.com/caiyue233" target="_blank" rel="noopener">@CaiYue_</a></li>
 </ul>
 <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>很多人刚接触 CocoaPods 时都会觉得 <code>pod install</code> 只在第一次给项目配置 CocoaPods 的时候使用，<code>pod update</code> 只在之后使用。然而 <strong>压根就不是那样的</strong>。（译者注：原文中还提到这里的install和update的含义和字典中的意思不完全相同，要具体问题具体分析，根据相关文档来判断。）</p>
@@ -404,10 +404,33 @@
 <p><em>否则，它会打破上面解释的关于pod install能够锁定已安装版本的pod 的整个逻辑</em></p>
 <h3 id="译者注"><a href="#译者注" class="headerlink" title="译者注"></a>译者注</h3><p>原文末尾还举了一个实际中应用 pod install 和 pod update 的例子，并提了一个不要在Podfile中写死特定版本的建议。链接戳此<a href="https://link.jianshu.com?t=https://guides.cocoapods.org/using/pod-install-vs-update.html" target="_blank" rel="noopener">https://guides.cocoapods.org/using/pod-install-vs-update.html</a>。</p>
 <h2 id="场景示例"><a href="#场景示例" class="headerlink" title="场景示例"></a>场景示例</h2><p>以下是一个场景示例，用于说明在项目生命周期中可能遇到的各种用例。</p>
-<font face="黑体">我是黑体字</font>
+<h3 id="阶段1：User1-创建项目"><a href="#阶段1：User1-创建项目" class="headerlink" title="阶段1：User1 创建项目"></a>阶段1：User1 创建项目</h3><p> <em>USER1</em>创建一个项目，想用pods <code>A</code>，<code>B</code>，<code>C</code>。他们用这些pods 创建了一个<code>Podfile</code>文件，然后运行<code>pod install</code>。</p>
+<p>这将会安装pods <code>A</code>，<code>B</code>，<code>C</code>，他们都在版本<code>1.0.0</code>。</p>
+<p>该<code>Podfile.lock</code>会跟踪并标记<code>A</code>，<code>B</code>，<code>C</code>的版本为<code>1.0.0</code>。</p>
+<blockquote>
+<p><em>顺便说一下，因为这是第一次运行pod install，并且Pods.xcodeproj项目尚不存在，该命令还会创建Pods.xcodeproj和 .xcworkspace，但这只是该命令的额外产生的，不是主要功能。</em></p>
+</blockquote>
+<h3 id="阶段2：User1-添加一个新的pod"><a href="#阶段2：User1-添加一个新的pod" class="headerlink" title="阶段2：User1 添加一个新的pod"></a>阶段2：User1 添加一个新的pod</h3><p>稍后，<em>user1</em>想要将pod <code>D</code>添加到<code>Podfile</code>。</p>
+<p>因此，他们应该在之后运行<code>pod install</code>，即使pod B的主要人员在第一次执行<code>pod intall</code>后发布了pod的1.1.0版本，该项目仍会继续使用1.0.0版本 - 因为<em>user1</em>只想要添加pod <code>D</code>，不想更新pod <code>B</code>。</p>
+<blockquote>
+<p><em>这就是有些人错误的地方，因为他们在这使用 pod update - 可能会认为“我想用新的pod 来更新项目”？- 而不是使用pod install- 在项目中安装新的pod。</em> </p>
+</blockquote>
+<h3 id="阶段3：User2-加入该项目"><a href="#阶段3：User2-加入该项目" class="headerlink" title="阶段3：User2 加入该项目"></a>阶段3：User2 加入该项目</h3><p>然后，从未参与过该项目的用户2加入该团队。他们克隆仓库然后使用<code>pod install</code>。</p>
+<p><code>Podfile.lock</code>（应该提交到git仓库）的内容将确保他们将获得完全相同的pods，并且使用与user1完全相同的版本。</p>
+<p>即使<code>1.2.0</code>版本的C现在可用，<em>user</em>2也将获得<code>1.0.0</code>版本的<code>C</code>. 因为这是在<code>Podfile.lock</code>中注册的内容。 pod <code>C</code>被<code>Podfile.lock</code>锁定为版本1.0.0（该文件因此得名）。</p>
+<h3 id="阶段4：检查pod的新版本"><a href="#阶段4：检查pod的新版本" class="headerlink" title="阶段4：检查pod的新版本"></a>阶段4：检查pod的新版本</h3><p>稍后，<em>user1</em>需要检查pods是否有可用的更新。他们运行<code>pod outdated</code>这将告诉他们，pod <code>B</code>有一个新<code>1.1.0</code>版本，并且pod <code>C</code>有一个新<code>1.2.0</code>版本。</p>
+<p><em>user1</em>决定他们想更新pod <code>B</code>，而不是pod <code>C</code>; 所以他们运行<strong>pod update B</strong>，它将<code>B</code>从版本<code>1.0.0</code>更新到版本<code>1.1.0</code>（并相应地更新<code>Podfile.lock</code>），但会保持<code>C</code>版本<code>1.0.0</code>（不会更新到<code>1.2.0</code>）。 </p>
+<h2 id="在Podfile中使用精确的版本是不够的"><a href="#在Podfile中使用精确的版本是不够的" class="headerlink" title="在Podfile中使用精确的版本是不够的"></a>在<code>Podfile</code>中使用精确的版本是不够的</h2><p>有些人可能会认为，通过在Podfile中指定Pod的精确版本，例如pod ‘A’，’1.0.0’，足以保证每个用户都拥有与团队中其他人相同的版本。</p>
+<p>然后，他们甚至可以使用<code>pod update</code>，即使只是添加一个新Pod，也认为从来不会有风险更新其他Pod，因为他们在<code>Podfile</code>中固定了pod版本。</p>
+<p>但事实上，这还不足以保证我们上述场景中的user1和user2将始终获得完全相同版本的所有Pod。</p>
+<p>一个典型的例子是，如果pod A依赖于pod A2 - 在A.podspec中声明为依赖关系’A2’，’〜&gt; 3.0’。在这种情况下，在Podfile中使用pod’A’，’1.0.0’，确实会强制user1和user2都使用pod A的版本1.0.0，但是：</p>
+<p>而当user2稍后加入项目时运行pod install时，他们可能会在版本3.5中获得pod A2（因为A2的维护者可能同时发布了新版本）。<br>这就是为什么确保每个团队成员使用每台计算机上所有pod的相同版本的唯一方法是使用Podfile.lock并正确使用pod安装与pod更新。</p>
+<ul>
+<li>user1最终可能会在版本<code>3.4</code>中得到<code>A2</code>（因为那时是A2的最新版本）</li>
+<li>而当user2加入项目后，运行<code>pod install</code>时，他们可能会在版本<code>3.5</code>中获得pod <code>A2</code>（因为A2的维护者可能同时发布了新版本）。</li>
+</ul>
+<p>这就是为什么确保每个团队成员使用每台计算机上所有pod的相同版本的唯一方法是使用Podfile.lock并正确使用<code>pod install</code>与<code>pod update</code>。</p>
 
-<p>浅红色文字：<font color="#dd0000">浅红色文字：</font><br></p>
-<h3 id="阶段1：用户1创建项目"><a href="#阶段1：用户1创建项目" class="headerlink" title="阶段1：用户1创建项目"></a>阶段1：用户1创建项目</h3>
       
     </div>
     
@@ -581,7 +604,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#TL-DR"><span class="nav-number">1.0.1.</span> <span class="nav-text">TL;DR:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#具体使用场景"><span class="nav-number">2.</span> <span class="nav-text">具体使用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#pod-install"><span class="nav-number">2.1.</span> <span class="nav-text">pod install</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pod-outdated"><span class="nav-number">2.2.</span> <span class="nav-text">pod outdated</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pod-update"><span class="nav-number">2.3.</span> <span class="nav-text">pod update</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#推荐用法"><span class="nav-number">3.</span> <span class="nav-text">推荐用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#把你的-Podfile-lock-加入到版本控制中"><span class="nav-number">4.</span> <span class="nav-text">把你的 Podfile.lock 加入到版本控制中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#译者注"><span class="nav-number">5.</span> <span class="nav-text">译者注</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#场景示例"><span class="nav-number"></span> <span class="nav-text">场景示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#阶段1：用户1创建项目"><span class="nav-number">1.</span> <span class="nav-text">阶段1：用户1创建项目</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#TL-DR"><span class="nav-number">1.0.1.</span> <span class="nav-text">TL;DR:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#具体使用场景"><span class="nav-number">2.</span> <span class="nav-text">具体使用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#pod-install"><span class="nav-number">2.1.</span> <span class="nav-text">pod install</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pod-outdated"><span class="nav-number">2.2.</span> <span class="nav-text">pod outdated</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pod-update"><span class="nav-number">2.3.</span> <span class="nav-text">pod update</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#推荐用法"><span class="nav-number">3.</span> <span class="nav-text">推荐用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#把你的-Podfile-lock-加入到版本控制中"><span class="nav-number">4.</span> <span class="nav-text">把你的 Podfile.lock 加入到版本控制中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#译者注"><span class="nav-number">5.</span> <span class="nav-text">译者注</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#场景示例"><span class="nav-number"></span> <span class="nav-text">场景示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#阶段1：User1-创建项目"><span class="nav-number">1.</span> <span class="nav-text">阶段1：User1 创建项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阶段2：User1-添加一个新的pod"><span class="nav-number">2.</span> <span class="nav-text">阶段2：User1 添加一个新的pod</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阶段3：User2-加入该项目"><span class="nav-number">3.</span> <span class="nav-text">阶段3：User2 加入该项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阶段4：检查pod的新版本"><span class="nav-number">4.</span> <span class="nav-text">阶段4：检查pod的新版本</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在Podfile中使用精确的版本是不够的"><span class="nav-number"></span> <span class="nav-text">在Podfile中使用精确的版本是不够的</span></a></div>
             
 
           </div>
@@ -631,7 +654,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">全站共1.4k字</span>
+  <span class="post-count">全站共2.3k字</span>
 </div>
 
         
