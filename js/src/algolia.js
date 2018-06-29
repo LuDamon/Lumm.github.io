@@ -1,12 +1,17 @@
+<script src="http://cdn.bootcss.com/instantsearch.js/1.5.1/instantsearch.js"></script>
+
+<script type="text/javascript">
 $(document).ready(function () {
   var algoliaSettings = CONFIG.algolia;
   var isAlgoliaSettingsValid = algoliaSettings.applicationID &&
     algoliaSettings.apiKey &&
     algoliaSettings.indexName;
+
   if (!isAlgoliaSettingsValid) {
     window.console.error('Algolia Settings are invalid.');
     return;
   }
+
   var search = instantsearch({
     appId: algoliaSettings.applicationID,
     apiKey: algoliaSettings.apiKey,
@@ -34,14 +39,14 @@ $(document).ready(function () {
         item: function (data) {
           return (
             '<a href="' + CONFIG.root + data.path + '" class="algolia-hit-item-link">' +
-              data._highlightResult.title.value +
+            data._highlightResult.title.value +
             '</a>'
           );
         },
         empty: function (data) {
           return (
             '<div id="algolia-hits-empty">' +
-              algoliaSettings.labels.hits_empty.replace(/\$\{query}/, data.query) +
+            algoliaSettings.labels.hits_empty.replace(/\$\{query}/, data.query) +
             '</div>'
           );
         }
@@ -56,8 +61,8 @@ $(document).ready(function () {
       templates: {
         body: function (data) {
           var stats = algoliaSettings.labels.hits_stats
-                        .replace(/\$\{hits}/, data.nbHits)
-                        .replace(/\$\{time}/, data.processingTimeMS);
+            .replace(/\$\{hits}/, data.nbHits)
+            .replace(/\$\{time}/, data.processingTimeMS);
           return (
             stats +
             '<span class="algolia-powered">' +
@@ -88,23 +93,31 @@ $(document).ready(function () {
       }
     })
   ].forEach(search.addWidget, search);
+
   search.start();
+
   $('.popup-trigger').on('click', function(e) {
     e.stopPropagation();
     $('body').append('<div class="popoverlay">').css('overflow', 'hidden');
     $('.popup').toggle();
     $('#algolia-search-input').find('input').focus();
   });
+
   $('.popup-btn-close').click(function(){
     $('.popup').hide();
     $('.popoverlay').remove();
     $('body').css('overflow', '');
   });
+
 });
+</script>
+
+<script type="text/javascript">
   $(document).ready(function () {
     if ( $('#local-search-input').size() === 0) {
       return;
     }
+
     // Popup Window;
     var isfetched = false;
     // Search DB path;
@@ -114,9 +127,11 @@ $(document).ready(function () {
     }
     var path = "/" + search_path;
     // monitor main search box;
+
     function proceedsearch() {
       $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
       $('.popup').toggle();
+
     }
     // search function;
     var searchFunc = function(path, search_id, content_id) {
@@ -195,6 +210,7 @@ $(document).ready(function () {
                       var regS = new RegExp(keyword, "gi");
                       match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
                     });
+
                     str += "<p class=\"search-result\">" + match_content +"...</p>"
                   }
                   str += "</li>";
@@ -208,6 +224,7 @@ $(document).ready(function () {
           proceedsearch();
         }
       });}
+
     // handle and trigger popup window;
     $('.popup-trigger').mousedown(function(e) {
       e.stopPropagation();
@@ -216,7 +233,9 @@ $(document).ready(function () {
       } else {
         proceedsearch();
       };
+
     });
+
     $('.popup-btn-close').click(function(e){
       $('.popup').hide();
       $(".popoverlay").remove();
@@ -226,3 +245,4 @@ $(document).ready(function () {
       e.stopPropagation();
     });
   });
+</script>
