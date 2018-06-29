@@ -1,6 +1,9 @@
-<script src="http://cdn.bootcss.com/instantsearch.js/1.5.1/instantsearch.js"></script>
+/* global NexT: true */
 
-<script type="text/javascript">
+// $(document).ready(function () {
+// <script src="http://cdn.bootcss.com/instantsearch.js/1.5.1/instantsearch.js"></script>
+
+// <script type="text/javascript">
 $(document).ready(function () {
   var algoliaSettings = CONFIG.algolia;
   var isAlgoliaSettingsValid = algoliaSettings.applicationID &&
