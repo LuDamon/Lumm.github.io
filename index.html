@@ -373,42 +373,20 @@
 
       
         
-          
-            <p>原文链接：<a href="https://link.jianshu.com/?t=https://guides.cocoapods.org/using/pod-install-vs-update.html" target="_blank" rel="noopener">https://guides.cocoapods.org/using/pod-install-vs-update.html</a></p>
+          <p>原文链接：<a href="https://link.jianshu.com/?t=https://guides.cocoapods.org/using/pod-install-vs-update.html" target="_blank" rel="noopener">https://guides.cocoapods.org/using/pod-install-vs-update.html</a></p>
 <ul>
 <li>译者：<a href="https://link.jianshu.com/?t=http://soledad.me" target="_blank" rel="noopener">Soledad</a></li>
 <li>微博：<a href="https://link.jianshu.com/?t=http://weibo.com/caiyue233" target="_blank" rel="noopener">@CaiYue_</a></li>
 </ul>
 <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>很多人刚接触 CocoaPods 时都会觉得 <code>pod install</code> 只在第一次给项目配置 CocoaPods 的时候使用，<code>pod update</code> 只在之后使用。然而 <strong>压根就不是那样的</strong>。（译者注：原文中还提到这里的install和update的含义和字典中的意思不完全相同，要具体问题具体分析，根据相关文档来判断。）</p>
 <p>这篇文章的目的就是向你解释什么时候该用 <code>pod install</code> 和 <code>pod update</code> 。</p>
-<h5 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR:"></a>TL;DR:</h5><ul>
-<li>在你的项目里<em>安装新pods时</em>使用 <code>pod install</code>。<strong>即使你已经有 Podfile 和曾经运行过 pod install指令</strong>，所以即使你在已经使用CoacoPods的项目中刚刚增添／移除 pods，你也应当使用该命令。</li>
-<li>只在你想<strong>让pods升级到新版本时</strong>才使用 <code>pod update</code>。</li>
-</ul>
-<h3 id="具体使用场景"><a href="#具体使用场景" class="headerlink" title="具体使用场景"></a>具体使用场景</h3><h4 id="pod-install"><a href="#pod-install" class="headerlink" title="pod install"></a>pod install</h4><p>当你第一次你想获取pods项目时，以及当你每次编辑你的 <code>Podfile</code> 来增加、更新或者移除某个pod的时候。</p>
-<ul>
-<li>每当你运行 <code>pod install</code> 指令时——下载和安装pods时——CocoaPods都会把每个安装的pods的版本，写在 Podfile.lock 文件里。这个文件跟踪纪录了安装了的pods的版本信息并<em>锁住</em>版本。</li>
-<li>当你运行 <code>pod install</code> 时，它只安装没有列在 Podfile.lock 里的pods。<ul>
-<li>对于已经列在 Podfile.lock 中的pods，它会下载 Podfile.lock 中列的<strong>确切</strong>的版本，而不会去检查这些pods是否有新的可用版本。</li>
-<li>对于那些还没有列在 Podfile.lock 中的pods，它会寻找满足 <code>Podfile</code> 中约束条件的pods（例如 pod ‘MyPod’,’~&gt;1.2’）</li>
-</ul>
-</li>
-</ul>
-<h4 id="pod-outdated"><a href="#pod-outdated" class="headerlink" title="pod outdated"></a>pod outdated</h4><p>当你运行 <code>pod outdated</code> ，CocoaPods 会列出所有 Podfile.lock 文件中已经过时的pods。也就是说，如果你运行 <code>pod update PODNAME</code> （PODNAME为列出的pods名称），它们将会被更新（只要它们满足 Podfile 中满足的约束条件。）</p>
-<h4 id="pod-update"><a href="#pod-update" class="headerlink" title="pod update"></a>pod update</h4><p>当你运行 <code>pod update PODNAME</code>，CoacoPods将会试着去找名为 PODNAME 的pod的更新版本，而不考虑 Podfile.lock 文件中的内容。它会将该pod更新至最新版本（同时只要它满足Podfile中的约束），并且也会相应的更新 Podfile.lock 中的内容。</p>
-<p>如果你运行 <code>pod update</code> ，不加任何参数，CocoaPods将会把所有在 Podfile 中列举的pods更新到最新版本。</p>
-<h3 id="推荐用法"><a href="#推荐用法" class="headerlink" title="推荐用法"></a>推荐用法</h3><p>使用 <code>pod update PODNAME</code>，你将只能够<strong>更新</strong>一个特定的pod（检查是否有新版本并且更新）。而不是像 <code>pod install</code> 那样不去尝试更新已安装的pods。</p>
-<p>当你把pod加入到 Podfile 后，你应当运行 <code>pod install</code> 而不是 <code>pod update</code>。</p>
-<p>也就是说，只有当你想去升级特定pod（或是全部pods）的时候才用 <code>pod update [PODNAME]</code>。</p>
-<h3 id="把你的-Podfile-lock-加入到版本控制中"><a href="#把你的-Podfile-lock-加入到版本控制中" class="headerlink" title="把你的 Podfile.lock 加入到版本控制中"></a>把你的 Podfile.lock 加入到版本控制中</h3><p> 作为提醒，即使我们不需要把Pods项目上传到版本管理的仓库中，我们也应当始终commit &amp; push 我们的 Podfile.lock 文件。</p>
-<p><em>否则，它会打破上面解释的关于pod install能够锁定已安装版本的pod 的整个逻辑</em></p>
-<h3 id="译者注"><a href="#译者注" class="headerlink" title="译者注"></a>译者注</h3><p>原文末尾还举了一个实际中应用 pod install 和 pod update 的例子，并提了一个不要在Podfile中写死特定版本的建议。链接戳此<a href="https://link.jianshu.com?t=https://guides.cocoapods.org/using/pod-install-vs-update.html" target="_blank" rel="noopener">https://guides.cocoapods.org/using/pod-install-vs-update.html</a>。</p>
-<h2 id="场景示例"><a href="#场景示例" class="headerlink" title="场景示例"></a>场景示例</h2><p>以下是一个场景示例，用于说明在项目生命周期中可能遇到的各种用例。</p>
-<font face="黑体">我是黑体字</font>
-
-<p>浅红色文字：<font color="#dd0000">浅红色文字：</font><br></p>
-<h3 id="阶段1：用户1创建项目"><a href="#阶段1：用户1创建项目" class="headerlink" title="阶段1：用户1创建项目"></a>阶段1：用户1创建项目</h3>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/29/pod-install-pod-update/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Welcom">
 <meta property="og:description" content="原文链接：https://guides.cocoapods.org/using/pod-install-vs-update.html  译者：Soledad 微博：@CaiYue_  介绍很多人刚接触 CocoaPods 时都会觉得 pod install 只在第一次给项目配置 CocoaPods 的时候使用，pod update 只在之后使用。然而 压根就不是那样的。（译者注：原文中还提到这里的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-29T02:14:45.396Z">
+<meta property="og:updated_time" content="2018-06-29T02:15:23.650Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pod install &amp; pod update">
 <meta name="twitter:description" content="原文链接：https://guides.cocoapods.org/using/pod-install-vs-update.html  译者：Soledad 微博：@CaiYue_  介绍很多人刚接触 CocoaPods 时都会觉得 pod install 只在第一次给项目配置 CocoaPods 的时候使用，pod update 只在之后使用。然而 压根就不是那样的。（译者注：原文中还提到这里的">
@@ -380,6 +380,7 @@
 </ul>
 <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>很多人刚接触 CocoaPods 时都会觉得 <code>pod install</code> 只在第一次给项目配置 CocoaPods 的时候使用，<code>pod update</code> 只在之后使用。然而 <strong>压根就不是那样的</strong>。（译者注：原文中还提到这里的install和update的含义和字典中的意思不完全相同，要具体问题具体分析，根据相关文档来判断。）</p>
 <p>这篇文章的目的就是向你解释什么时候该用 <code>pod install</code> 和 <code>pod update</code> 。</p>
+<a id="more"></a> 
 <h5 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR:"></a>TL;DR:</h5><ul>
 <li>在你的项目里<em>安装新pods时</em>使用 <code>pod install</code>。<strong>即使你已经有 Podfile 和曾经运行过 pod install指令</strong>，所以即使你在已经使用CoacoPods的项目中刚刚增添／移除 pods，你也应当使用该命令。</li>
 <li>只在你想<strong>让pods升级到新版本时</strong>才使用 <code>pod update</code>。</li>
