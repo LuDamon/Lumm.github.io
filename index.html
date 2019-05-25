@@ -574,8 +574,7 @@
 
       
         
-          
-            <p>目前负责的 App 几乎全部页面都是竖屏操作， 所以在 Targets-&gt;General-&gt;Device Orientation 中只勾了Portrait.</p>
+          <p>目前负责的 App 几乎全部页面都是竖屏操作， 所以在 Targets-&gt;General-&gt;Device Orientation 中只勾了Portrait.</p>
 <p><img src="https://github.com/LuDamon/Sources/blob/master/Images/device_orientation.png?raw=true" alt="竖屏设置"></p>
 <p>但避免不了个别界面需要横屏操作，这就需要 强制切换横竖屏了：</p>
 <ul>
@@ -583,20 +582,13 @@
 </li>
 <li><p>实现 UIApplicationDelegate 的 代理方法：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">application</span><span class="params">(<span class="number">_</span> application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?)</span></span> -&gt; <span class="type">UIInterfaceOrientationMask</span> &#123;</span><br><span class="line">		<span class="keyword">if</span> allowRotation &#123;</span><br><span class="line">			<span class="keyword">return</span> .landscape	<span class="comment">//横屏</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> .portrait	<span class="comment">//竖屏</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>给 UIDevice 添加扩展方法：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UIDevice</span> </span>&#123;</span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">switchNew</span>(<span class="title">orientation</span>: <span class="title">UIInterfaceOrientation</span>) </span>&#123;</span><br><span class="line">		<span class="type">UIDevice</span>.current.setValue(<span class="type">UIInterfaceOrientation</span>.unknown.rawValue, forKey: <span class="string">"orientation"</span>)</span><br><span class="line">		<span class="type">UIDevice</span>.current.setValue(orientation.rawValue, forKey: <span class="string">"orientation"</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>然后在需要<font color="red"> 横屏 </font>的控制器中实现以下代码：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> appDelegate: <span class="type">AppDelegate</span> = <span class="type">UIApplication</span>.shared.delegate <span class="keyword">as</span>! <span class="type">AppDelegate</span></span><br><span class="line">appDelegate.allowRotation = <span class="literal">true</span></span><br><span class="line"><span class="type">UIDevice</span>.switchNew(orientation: .landscapeLeft)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>当从横屏切换到竖屏时，在竖屏控制器中实现以下代码:</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> appDelegate: <span class="type">AppDelegate</span> = <span class="type">UIApplication</span>.shared.delegate <span class="keyword">as</span>! <span class="type">AppDelegate</span></span><br><span class="line">appDelegate.allowRotation = <span class="literal">false</span></span><br><span class="line"><span class="type">UIDevice</span>.switchNew(orientation: .portrait)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>以上就是实现强制横竖屏的全部内容啦~ 如有更好的方式来实现，欢迎讨论~</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/iPhone-强制横竖屏/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
