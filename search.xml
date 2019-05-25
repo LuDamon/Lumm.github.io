@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[iOS 添加全局水印]]></title>
+    <url>%2FiOS-%E6%B7%BB%E5%8A%A0%E5%85%A8%E5%B1%80%E6%B0%B4%E5%8D%B0%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[iPhone 强制横竖屏]]></title>
+    <url>%2FiPhone-%E5%BC%BA%E5%88%B6%E6%A8%AA%E7%AB%96%E5%B1%8F%2F</url>
+    <content type="text"><![CDATA[目前负责的 App 几乎全部页面都是竖屏操作， 所以在 Targets-&gt;General-&gt;Device Orientation 中只勾了Portrait. 但避免不了个别界面需要横屏操作，这就需要 强制切换横竖屏了： 在 AppDelegate 中定义公开属性 var allowRotation: Bool = false 实现 UIApplicationDelegate 的 代理方法： 123456func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -&gt; UIInterfaceOrientationMask &#123; if allowRotation &#123; return .landscape //横屏 &#125; return .portrait //竖屏&#125; 给 UIDevice 添加扩展方法： 123456extension UIDevice &#123; class func switchNew(orientation: UIInterfaceOrientation) &#123; UIDevice.current.setValue(UIInterfaceOrientation.unknown.rawValue, forKey: "orientation") UIDevice.current.setValue(orientation.rawValue, forKey: "orientation") &#125;&#125; 然后在需要 横屏 的控制器中实现以下代码： 123let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegateappDelegate.allowRotation = trueUIDevice.switchNew(orientation: .landscapeLeft) 当从横屏切换到竖屏时，在竖屏控制器中实现以下代码: 123let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegateappDelegate.allowRotation = falseUIDevice.switchNew(orientation: .portrait) 以上就是实现强制横竖屏的全部内容啦~ 如有更好的方式来实现，欢迎讨论~]]></content>
+      <categories>
+        <category>知识小集</category>
+      </categories>
+      <tags>
+        <tag>iOS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[cocoaPods指南]]></title>
     <url>%2FcocoaPods%E6%8C%87%E5%8D%97%2F</url>
     <content type="text"><![CDATA[1、更改软件源 sudo gem update --system 如果提示没权限: Operation not permitted - /usr/bin/update_rubygems使用 sudo gem update -n /usr/local/bin --system gem sources --remove https://rubygems.org/ gem sources -a https://ruby.taobao.org/ gem sources -l 123注：由于淘宝源不再更新，建议替换成Ruby China源：gem sources --remove https://ruby.taobao.org/gem sources -a https://gems.ruby-china.org/ 2、安装CocoaPodssudo gem install cocoapods 如果提示无权限，使用：sudo gem install -n /usr/local/bin cocoapods 3、pod初始化 普通⽅方式:(速度慢) pod setup 更改CocoaPods镜像索引(速度快⼀一点) 12pod repo remove masterpod repo add master http://git.oschina.net/akuandev/Specs.git pod repo update 4、使⽤用CocoaPods 在程序的跟路径新建⽂文件 Podfile 编辑 Podfile,添加此项目需要的开源类库 在终端cd到程序跟路径,执行 pod install 安装开源类库 123注意,需要记住如下 2 点即可:使用 CocoaPods ⽣成的 .xcworkspace ⽂件来打开工程,⽽不是以前的 .xcodeproj 文件 每次更改了 Podfile文件,你需要重新执行一次 pod update (--verbose --no-repo-update) 命令 5、查找第三⽅方类库pod search AFNetworking 6、关于 Podfile.lock​ 当你执行 pod install 之后,除了 Podfile 外, CocoaPods 还会⽣成一个名为 Podfile.lock 的文件,Podfile.lock 应该加⼊到版本控制里面,不应该把这个文件加⼊到 .gitignore 中,这样多人协作的时候,可以防止第三⽅库升级时造成大家各自的第三⽅库版本不一致 7、pod install 和 pod update 的区别这是英文原文链接 这是翻译版本]]></content>
