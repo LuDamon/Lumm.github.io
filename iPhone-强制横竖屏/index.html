@@ -88,7 +88,7 @@
 <meta property="og:description" content="目前负责的 App 几乎全部页面都是竖屏操作， 所以在 Targets-&amp;gt;General-&amp;gt;Device Orientation 中只勾了Portrait.  但避免不了个别界面需要横屏操作，这就需要 强制切换横竖屏了：  在 AppDelegate 中定义公开属性 var allowRotation: Bool = false  实现 UIApplicationDelegate 的">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://github.com/LuDamon/Sources/blob/master/Images/device_orientation.png?raw=true">
-<meta property="og:updated_time" content="2019-05-25T02:41:12.270Z">
+<meta property="og:updated_time" content="2019-05-25T02:42:38.185Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iPhone 强制横竖屏">
 <meta name="twitter:description" content="目前负责的 App 几乎全部页面都是竖屏操作， 所以在 Targets-&amp;gt;General-&amp;gt;Device Orientation 中只勾了Portrait.  但避免不了个别界面需要横屏操作，这就需要 强制切换横竖屏了：  在 AppDelegate 中定义公开属性 var allowRotation: Bool = false  实现 UIApplicationDelegate 的">
@@ -442,7 +442,7 @@
 <li><p>然后在需要<font color="red"> 横屏 </font>的控制器中实现以下代码：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> appDelegate: <span class="type">AppDelegate</span> = <span class="type">UIApplication</span>.shared.delegate <span class="keyword">as</span>! <span class="type">AppDelegate</span></span><br><span class="line">appDelegate.allowRotation = <span class="literal">true</span></span><br><span class="line"><span class="type">UIDevice</span>.switchNew(orientation: .landscapeLeft)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>当从横屏切换到竖屏时，在竖屏控制器中实现以下代码:</p>
+<li><p>当从横屏切换到竖屏时，在<font color="red"> 竖屏 </font>控制器中实现以下代码:</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> appDelegate: <span class="type">AppDelegate</span> = <span class="type">UIApplication</span>.shared.delegate <span class="keyword">as</span>! <span class="type">AppDelegate</span></span><br><span class="line">appDelegate.allowRotation = <span class="literal">false</span></span><br><span class="line"><span class="type">UIDevice</span>.switchNew(orientation: .portrait)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>

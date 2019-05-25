@@ -1,53 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title><![CDATA[iOS 添加全局水印]]></title>
-    <url>%2FiOS-%E6%B7%BB%E5%8A%A0%E5%85%A8%E5%B1%80%E6%B0%B4%E5%8D%B0%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
-    <title><![CDATA[iPhone 强制横竖屏]]></title>
-    <url>%2FiPhone-%E5%BC%BA%E5%88%B6%E6%A8%AA%E7%AB%96%E5%B1%8F%2F</url>
-    <content type="text"><![CDATA[目前负责的 App 几乎全部页面都是竖屏操作， 所以在 Targets-&gt;General-&gt;Device Orientation 中只勾了Portrait. 但避免不了个别界面需要横屏操作，这就需要 强制切换横竖屏了： 在 AppDelegate 中定义公开属性 var allowRotation: Bool = false 实现 UIApplicationDelegate 的 代理方法： 123456func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -&gt; UIInterfaceOrientationMask &#123; if allowRotation &#123; return .landscape //横屏 &#125; return .portrait //竖屏&#125; 给 UIDevice 添加扩展方法： 123456extension UIDevice &#123; class func switchNew(orientation: UIInterfaceOrientation) &#123; UIDevice.current.setValue(UIInterfaceOrientation.unknown.rawValue, forKey: "orientation") UIDevice.current.setValue(orientation.rawValue, forKey: "orientation") &#125;&#125; 然后在需要 横屏 的控制器中实现以下代码： 123let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegateappDelegate.allowRotation = trueUIDevice.switchNew(orientation: .landscapeLeft) 当从横屏切换到竖屏时，在竖屏控制器中实现以下代码: 123let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegateappDelegate.allowRotation = falseUIDevice.switchNew(orientation: .portrait) 以上就是实现强制横竖屏的全部内容啦~ 如有更好的方式来实现，欢迎讨论~]]></content>
+<search> 
+  
+    
+    <entry>
+      <title>iOS 添加全局水印</title>
+      <link href="/iOS-%E6%B7%BB%E5%8A%A0%E5%85%A8%E5%B1%80%E6%B0%B4%E5%8D%B0/"/>
+      <url>/iOS-%E6%B7%BB%E5%8A%A0%E5%85%A8%E5%B1%80%E6%B0%B4%E5%8D%B0/</url>
+      <content type="html"><![CDATA[]]></content>
+      
+      
+    </entry>
+    
+    <entry>
+      <title>iPhone 强制横竖屏</title>
+      <link href="/iPhone-%E5%BC%BA%E5%88%B6%E6%A8%AA%E7%AB%96%E5%B1%8F/"/>
+      <url>/iPhone-%E5%BC%BA%E5%88%B6%E6%A8%AA%E7%AB%96%E5%B1%8F/</url>
+      <content type="html"><![CDATA[<p>目前负责的 App 几乎全部页面都是竖屏操作， 所以在 Targets-&gt;General-&gt;Device Orientation 中只勾了Portrait.</p><p><img src="https://github.com/LuDamon/Sources/blob/master/Images/device_orientation.png?raw=true" alt="竖屏设置"></p><p>但避免不了个别界面需要横屏操作，这就需要 强制切换横竖屏了：</p><ul><li><p>在 AppDelegate 中定义公开属性 <code>var allowRotation: Bool = false</code></p></li><li><p>实现 UIApplicationDelegate 的 代理方法：</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">application</span><span class="params">(<span class="number">_</span> application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?)</span></span> -&gt; <span class="type">UIInterfaceOrientationMask</span> &#123;</span><br><span class="line"><span class="keyword">if</span> allowRotation &#123;</span><br><span class="line"><span class="keyword">return</span> .landscape<span class="comment">//横屏</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> .portrait<span class="comment">//竖屏</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><a id="more"></a> </li><li><p>给 UIDevice 添加扩展方法：</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UIDevice</span> </span>&#123;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">switchNew</span>(<span class="title">orientation</span>: <span class="title">UIInterfaceOrientation</span>) </span>&#123;</span><br><span class="line"><span class="type">UIDevice</span>.current.setValue(<span class="type">UIInterfaceOrientation</span>.unknown.rawValue, forKey: <span class="string">"orientation"</span>)</span><br><span class="line"><span class="type">UIDevice</span>.current.setValue(orientation.rawValue, forKey: <span class="string">"orientation"</span>)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>然后在需要<font color="red"> 横屏 </font>的控制器中实现以下代码：</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> appDelegate: <span class="type">AppDelegate</span> = <span class="type">UIApplication</span>.shared.delegate <span class="keyword">as</span>! <span class="type">AppDelegate</span></span><br><span class="line">appDelegate.allowRotation = <span class="literal">true</span></span><br><span class="line"><span class="type">UIDevice</span>.switchNew(orientation: .landscapeLeft)</span><br></pre></td></tr></table></figure></li><li><p>当从横屏切换到竖屏时，在<font color="red"> 竖屏 </font>控制器中实现以下代码:</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> appDelegate: <span class="type">AppDelegate</span> = <span class="type">UIApplication</span>.shared.delegate <span class="keyword">as</span>! <span class="type">AppDelegate</span></span><br><span class="line">appDelegate.allowRotation = <span class="literal">false</span></span><br><span class="line"><span class="type">UIDevice</span>.switchNew(orientation: .portrait)</span><br></pre></td></tr></table></figure></li></ul><p>以上就是实现强制横竖屏的全部内容啦~ 如有更好的方式来实现，欢迎讨论~</p>]]></content>
+      
       <categories>
-        <category>知识小集</category>
+          
+          <category> 知识小集 </category>
+          
       </categories>
-      <tags>
-        <tag>iOS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[cocoaPods指南]]></title>
-    <url>%2FcocoaPods%E6%8C%87%E5%8D%97%2F</url>
-    <content type="text"><![CDATA[1、更改软件源 sudo gem update --system 如果提示没权限: Operation not permitted - /usr/bin/update_rubygems使用 sudo gem update -n /usr/local/bin --system gem sources --remove https://rubygems.org/ gem sources -a https://ruby.taobao.org/ gem sources -l 123注：由于淘宝源不再更新，建议替换成Ruby China源：gem sources --remove https://ruby.taobao.org/gem sources -a https://gems.ruby-china.org/ 2、安装CocoaPodssudo gem install cocoapods 如果提示无权限，使用：sudo gem install -n /usr/local/bin cocoapods 3、pod初始化 普通⽅方式:(速度慢) pod setup 更改CocoaPods镜像索引(速度快⼀一点) 12pod repo remove masterpod repo add master http://git.oschina.net/akuandev/Specs.git pod repo update 4、使⽤用CocoaPods 在程序的跟路径新建⽂文件 Podfile 编辑 Podfile,添加此项目需要的开源类库 在终端cd到程序跟路径,执行 pod install 安装开源类库 123注意,需要记住如下 2 点即可:使用 CocoaPods ⽣成的 .xcworkspace ⽂件来打开工程,⽽不是以前的 .xcodeproj 文件 每次更改了 Podfile文件,你需要重新执行一次 pod update (--verbose --no-repo-update) 命令 5、查找第三⽅方类库pod search AFNetworking 6、关于 Podfile.lock​ 当你执行 pod install 之后,除了 Podfile 外, CocoaPods 还会⽣成一个名为 Podfile.lock 的文件,Podfile.lock 应该加⼊到版本控制里面,不应该把这个文件加⼊到 .gitignore 中,这样多人协作的时候,可以防止第三⽅库升级时造成大家各自的第三⽅库版本不一致 7、pod install 和 pod update 的区别这是英文原文链接 这是翻译版本]]></content>
+      
+      
+        <tags>
+            
+            <tag> iOS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>cocoaPods指南</title>
+      <link href="/cocoaPods%E6%8C%87%E5%8D%97/"/>
+      <url>/cocoaPods%E6%8C%87%E5%8D%97/</url>
+      <content type="html"><![CDATA[<h5 id="1、更改软件源"><a href="#1、更改软件源" class="headerlink" title="1、更改软件源"></a>1、更改软件源</h5><ul><li><p><code>sudo gem update --system</code></p><p>如果提示没权限:  Operation not permitted - /usr/bin/update_rubygems<br>使用 <code>sudo gem update -n /usr/local/bin --system</code></p></li><li><p><code>gem sources --remove https://rubygems.org/</code></p></li><li><p><code>gem sources -a https://ruby.taobao.org/</code></p></li><li><p><code>gem sources -l</code></p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">注：由于淘宝源不再更新，建议替换成Ruby China源：</span><br><span class="line">gem sources --remove https://ruby.taobao.org/</span><br><span class="line">gem sources -a https://gems.ruby-china.org/</span><br></pre></td></tr></table></figure><a id="more"></a> <h5 id="2、安装CocoaPods"><a href="#2、安装CocoaPods" class="headerlink" title="2、安装CocoaPods"></a>2、安装CocoaPods</h5><p><code>sudo gem install cocoapods</code></p><p>如果提示无权限，使用：<code>sudo gem install -n /usr/local/bin cocoapods</code></p><h5 id="3、pod初始化"><a href="#3、pod初始化" class="headerlink" title="3、pod初始化"></a>3、pod初始化</h5><ul><li><p>普通⽅方式:(速度慢)</p><p><code>pod setup</code></p></li><li><p>更改CocoaPods镜像索引(速度快⼀一点)</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pod repo remove master</span><br><span class="line">pod repo add master http://git.oschina.net/akuandev/Specs.git pod repo update</span><br></pre></td></tr></table></figure></li></ul><h5 id="4、使⽤用CocoaPods"><a href="#4、使⽤用CocoaPods" class="headerlink" title="4、使⽤用CocoaPods"></a>4、使⽤用CocoaPods</h5><ul><li>在程序的跟路径新建⽂文件 Podfile</li><li>编辑 Podfile,添加此项目需要的开源类库 </li><li>在终端cd到程序跟路径,执行 pod install 安装开源类库</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">注意,需要记住如下 2 点即可:</span><br><span class="line"></span><br><span class="line">使用 CocoaPods ⽣成的 .xcworkspace ⽂件来打开工程,⽽不是以前的 .xcodeproj 文件 每次更改了 Podfile文件,你需要重新执行一次 pod update (--verbose --no-repo-update) 命令</span><br></pre></td></tr></table></figure><h5 id="5、查找第三⽅方类库"><a href="#5、查找第三⽅方类库" class="headerlink" title="5、查找第三⽅方类库"></a>5、查找第三⽅方类库</h5><p><code>pod search AFNetworking</code></p><h5 id="6、关于-Podfile-lock"><a href="#6、关于-Podfile-lock" class="headerlink" title="6、关于 Podfile.lock"></a>6、关于 Podfile.lock</h5><p>​    当你执行 pod install 之后,除了 Podfile 外, CocoaPods 还会⽣成一个名为 Podfile.lock 的文件,Podfile.lock 应该加⼊到版本控制里面,不应该把这个文件加⼊到 .gitignore 中,这样多人协作的时候,可以防止第三⽅库升级时造成大家各自的第三⽅库版本不一致</p><h5 id="7、pod-install-和-pod-update-的区别"><a href="#7、pod-install-和-pod-update-的区别" class="headerlink" title="7、pod install 和 pod update 的区别"></a>7、pod install 和 pod update 的区别</h5><p>这是英文<a href="https://guides.cocoapods.org/using/pod-install-vs-update.html" target="_blank" rel="noopener">原文链接</a></p><p>这是<a href="https://ludamon.github.io/2018/06/29/pod-install-pod-update/">翻译版本</a></p>]]></content>
+      
       <categories>
-        <category>cocoaPods</category>
+          
+          <category> cocoaPods </category>
+          
       </categories>
-      <tags>
-        <tag>cocoaPods</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[pod install & pod update]]></title>
-    <url>%2Fpod-install-pod-update%2F</url>
-    <content type="text"><![CDATA[原文链接：https://guides.cocoapods.org/using/pod-install-vs-update.html 译者：Soledad、DamonLu 微博：@CaiYue_ 介绍很多人刚接触 CocoaPods 时都会觉得 pod install 只在第一次给项目配置 CocoaPods 的时候使用，pod update 只在之后使用。然而 压根就不是那样的。（译者注：原文中还提到这里的install和update的含义和字典中的意思不完全相同，要具体问题具体分析，根据相关文档来判断。） 这篇文章的目的就是向你解释什么时候该用 pod install 和 pod update 。 TL;DR: 在你的项目里安装新pods时使用 pod install。即使你已经有 Podfile 和曾经运行过 pod install指令，所以即使你在已经使用CoacoPods的项目中刚刚增添／移除 pods，你也应当使用该命令。 只在你想让pods升级到新版本时才使用 pod update。 具体使用场景pod install当你第一次你想获取pods项目时，以及当你每次编辑你的 Podfile 来增加、更新或者移除某个pod的时候。 每当你运行 pod install 指令时——下载和安装pods时——CocoaPods都会把每个安装的pods的版本，写在 Podfile.lock 文件里。这个文件跟踪纪录了安装了的pods的版本信息并锁住版本。 当你运行 pod install 时，它只安装没有列在 Podfile.lock 里的pods。 对于已经列在 Podfile.lock 中的pods，它会下载 Podfile.lock 中列的确切的版本，而不会去检查这些pods是否有新的可用版本。 对于那些还没有列在 Podfile.lock 中的pods，它会寻找满足 Podfile 中约束条件的pods（例如 pod ‘MyPod’,’~&gt;1.2’） pod outdated当你运行 pod outdated ，CocoaPods 会列出所有 Podfile.lock 文件中已经过时的pods。也就是说，如果你运行 pod update PODNAME （PODNAME为列出的pods名称），它们将会被更新（只要它们满足 Podfile 中满足的约束条件。） pod update当你运行 pod update PODNAME，CoacoPods将会试着去找名为 PODNAME 的pod的更新版本，而不考虑 Podfile.lock 文件中的内容。它会将该pod更新至最新版本（同时只要它满足Podfile中的约束），并且也会相应的更新 Podfile.lock 中的内容。 如果你运行 pod update ，不加任何参数，CocoaPods将会把所有在 Podfile 中列举的pods更新到最新版本。 推荐用法使用 pod update PODNAME，你将只能够更新一个特定的pod（检查是否有新版本并且更新）。而不是像 pod install 那样不去尝试更新已安装的pods。 当你把pod加入到 Podfile 后，你应当运行 pod install 而不是 pod update。 也就是说，只有当你想去升级特定pod（或是全部pods）的时候才用 pod update [PODNAME]。 把你的 Podfile.lock 加入到版本控制中 作为提醒，即使我们不需要把Pods项目上传到版本管理的仓库中，我们也应当始终commit &amp; push 我们的 Podfile.lock 文件。 否则，它会打破上面解释的关于pod install能够锁定已安装版本的pod 的整个逻辑 译者注原文末尾还举了一个实际中应用 pod install 和 pod update 的例子，并提了一个不要在Podfile中写死特定版本的建议。链接戳此https://guides.cocoapods.org/using/pod-install-vs-update.html。 场景示例以下是一个场景示例，用于说明在项目生命周期中可能遇到的各种用例。 阶段1：User1 创建项目 USER1创建一个项目，想用pods A，B，C。他们用这些pods 创建了一个Podfile文件，然后运行pod install。 这将会安装pods A，B，C，他们都在版本1.0.0。 该Podfile.lock会跟踪并标记A，B，C的版本为1.0.0。 顺便说一下，因为这是第一次运行pod install，并且Pods.xcodeproj项目尚不存在，该命令还会创建Pods.xcodeproj和 .xcworkspace，但这只是该命令的额外产生的，不是主要功能。 阶段2：User1 添加一个新的pod稍后，user1想要将pod D添加到Podfile。 因此，他们应该在之后运行pod install，即使pod B的主要人员在第一次执行pod intall后发布了pod的1.1.0版本，该项目仍会继续使用1.0.0版本 - 因为user1只想要添加pod D，不想更新pod B。 这就是有些人错误的地方，因为他们在这使用 pod update - 可能会认为“我想用新的pod 来更新项目”？- 而不是使用pod install- 在项目中安装新的pod。 阶段3：User2 加入该项目然后，从未参与过该项目的用户2加入该团队。他们克隆仓库然后使用pod install。 Podfile.lock（应该提交到git仓库）的内容将确保他们将获得完全相同的pods，并且使用与user1完全相同的版本。 即使1.2.0版本的C现在可用，user2也将获得1.0.0版本的C. 因为这是在Podfile.lock中注册的内容。 pod C被Podfile.lock锁定为版本1.0.0（该文件因此得名）。 阶段4：检查pod的新版本稍后，user1需要检查pods是否有可用的更新。他们运行pod outdated这将告诉他们，pod B有一个新1.1.0版本，并且pod C有一个新1.2.0版本。 user1决定他们想更新pod B，而不是pod C; 所以他们运行pod update B，它将B从版本1.0.0更新到版本1.1.0（并相应地更新Podfile.lock），但会保持C版本1.0.0（不会更新到1.2.0）。 在Podfile中使用精确的版本是不够的有些人可能会认为，通过在Podfile中指定Pod的精确版本，例如pod ‘A’，’1.0.0’，足以保证每个用户都拥有与团队中其他人相同的版本。 然后，他们甚至可以使用pod update，即使只是添加一个新Pod，也认为从来不会有风险更新其他Pod，因为他们在Podfile中固定了pod版本。 但事实上，这还不足以保证我们上述场景中的user1和user2将始终获得完全相同版本的所有Pod。 一个典型的例子是，如果pod A依赖于pod A2 - 在A.podspec中声明为依赖关系’A2’，’〜&gt; 3.0’。在这种情况下，在Podfile中使用pod’A’，’1.0.0’，确实会强制user1和user2都使用pod A的版本1.0.0，但是： 而当user2稍后加入项目时运行pod install时，他们可能会在版本3.5中获得pod A2（因为A2的维护者可能同时发布了新版本）。这就是为什么确保每个团队成员使用每台计算机上所有pod的相同版本的唯一方法是使用Podfile.lock并正确使用pod安装与pod更新。 user1最终可能会在版本3.4中得到A2（因为那时是A2的最新版本） 而当user2加入项目后，运行pod install时，他们可能会在版本3.5中获得pod A2（因为A2的维护者可能同时发布了新版本）。 这就是为什么确保每个团队成员使用每台计算机上所有pod的相同版本的唯一方法是使用Podfile.lock并正确使用pod install与pod update。]]></content>
+      
+      
+        <tags>
+            
+            <tag> cocoaPods </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>pod install &amp; pod update</title>
+      <link href="/pod-install-pod-update/"/>
+      <url>/pod-install-pod-update/</url>
+      <content type="html"><![CDATA[<p>原文链接：<a href="https://link.jianshu.com/?t=https://guides.cocoapods.org/using/pod-install-vs-update.html" target="_blank" rel="noopener">https://guides.cocoapods.org/using/pod-install-vs-update.html</a></p><ul><li>译者：<a href="https://link.jianshu.com/?t=http://soledad.me" target="_blank" rel="noopener">Soledad</a>、<a href="https://ludamon.github.io/">DamonLu</a></li><li>微博：<a href="https://link.jianshu.com/?t=http://weibo.com/caiyue233" target="_blank" rel="noopener">@CaiYue_</a></li></ul><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>很多人刚接触 CocoaPods 时都会觉得 <code>pod install</code> 只在第一次给项目配置 CocoaPods 的时候使用，<code>pod update</code> 只在之后使用。然而 <strong>压根就不是那样的</strong>。（译者注：原文中还提到这里的install和update的含义和字典中的意思不完全相同，要具体问题具体分析，根据相关文档来判断。）</p><p>这篇文章的目的就是向你解释什么时候该用 <code>pod install</code> 和 <code>pod update</code> 。</p><a id="more"></a> <h5 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR:"></a>TL;DR:</h5><ul><li>在你的项目里<em>安装新pods时</em>使用 <code>pod install</code>。<strong>即使你已经有 Podfile 和曾经运行过 pod install指令</strong>，所以即使你在已经使用CoacoPods的项目中刚刚增添／移除 pods，你也应当使用该命令。</li><li>只在你想<strong>让pods升级到新版本时</strong>才使用 <code>pod update</code>。</li></ul><h3 id="具体使用场景"><a href="#具体使用场景" class="headerlink" title="具体使用场景"></a>具体使用场景</h3><h4 id="pod-install"><a href="#pod-install" class="headerlink" title="pod install"></a>pod install</h4><p>当你第一次你想获取pods项目时，以及当你每次编辑你的 <code>Podfile</code> 来增加、更新或者移除某个pod的时候。</p><ul><li>每当你运行 <code>pod install</code> 指令时——下载和安装pods时——CocoaPods都会把每个安装的pods的版本，写在 Podfile.lock 文件里。这个文件跟踪纪录了安装了的pods的版本信息并<em>锁住</em>版本。</li><li>当你运行 <code>pod install</code> 时，它只安装没有列在 Podfile.lock 里的pods。<ul><li>对于已经列在 Podfile.lock 中的pods，它会下载 Podfile.lock 中列的<strong>确切</strong>的版本，而不会去检查这些pods是否有新的可用版本。</li><li>对于那些还没有列在 Podfile.lock 中的pods，它会寻找满足 <code>Podfile</code> 中约束条件的pods（例如 pod ‘MyPod’,’~&gt;1.2’）</li></ul></li></ul><h4 id="pod-outdated"><a href="#pod-outdated" class="headerlink" title="pod outdated"></a>pod outdated</h4><p>当你运行 <code>pod outdated</code> ，CocoaPods 会列出所有 Podfile.lock 文件中已经过时的pods。也就是说，如果你运行 <code>pod update PODNAME</code> （PODNAME为列出的pods名称），它们将会被更新（只要它们满足 Podfile 中满足的约束条件。）</p><h4 id="pod-update"><a href="#pod-update" class="headerlink" title="pod update"></a>pod update</h4><p>当你运行 <code>pod update PODNAME</code>，CoacoPods将会试着去找名为 PODNAME 的pod的更新版本，而不考虑 Podfile.lock 文件中的内容。它会将该pod更新至最新版本（同时只要它满足Podfile中的约束），并且也会相应的更新 Podfile.lock 中的内容。</p><p>如果你运行 <code>pod update</code> ，不加任何参数，CocoaPods将会把所有在 Podfile 中列举的pods更新到最新版本。</p><h3 id="推荐用法"><a href="#推荐用法" class="headerlink" title="推荐用法"></a>推荐用法</h3><p>使用 <code>pod update PODNAME</code>，你将只能够<strong>更新</strong>一个特定的pod（检查是否有新版本并且更新）。而不是像 <code>pod install</code> 那样不去尝试更新已安装的pods。</p><p>当你把pod加入到 Podfile 后，你应当运行 <code>pod install</code> 而不是 <code>pod update</code>。</p><p>也就是说，只有当你想去升级特定pod（或是全部pods）的时候才用 <code>pod update [PODNAME]</code>。</p><h3 id="把你的-Podfile-lock-加入到版本控制中"><a href="#把你的-Podfile-lock-加入到版本控制中" class="headerlink" title="把你的 Podfile.lock 加入到版本控制中"></a>把你的 Podfile.lock 加入到版本控制中</h3><p> 作为提醒，即使我们不需要把Pods项目上传到版本管理的仓库中，我们也应当始终commit &amp; push 我们的 Podfile.lock 文件。</p><p><em>否则，它会打破上面解释的关于pod install能够锁定已安装版本的pod 的整个逻辑</em></p><h3 id="译者注"><a href="#译者注" class="headerlink" title="译者注"></a>译者注</h3><p>原文末尾还举了一个实际中应用 pod install 和 pod update 的例子，并提了一个不要在Podfile中写死特定版本的建议。链接戳此<a href="https://link.jianshu.com?t=https://guides.cocoapods.org/using/pod-install-vs-update.html" target="_blank" rel="noopener">https://guides.cocoapods.org/using/pod-install-vs-update.html</a>。</p><h2 id="场景示例"><a href="#场景示例" class="headerlink" title="场景示例"></a>场景示例</h2><p>以下是一个场景示例，用于说明在项目生命周期中可能遇到的各种用例。</p><h3 id="阶段1：User1-创建项目"><a href="#阶段1：User1-创建项目" class="headerlink" title="阶段1：User1 创建项目"></a>阶段1：User1 创建项目</h3><p> <em>USER1</em>创建一个项目，想用pods <code>A</code>，<code>B</code>，<code>C</code>。他们用这些pods 创建了一个<code>Podfile</code>文件，然后运行<code>pod install</code>。</p><p>这将会安装pods <code>A</code>，<code>B</code>，<code>C</code>，他们都在版本<code>1.0.0</code>。</p><p>该<code>Podfile.lock</code>会跟踪并标记<code>A</code>，<code>B</code>，<code>C</code>的版本为<code>1.0.0</code>。</p><blockquote><p><em>顺便说一下，因为这是第一次运行pod install，并且Pods.xcodeproj项目尚不存在，该命令还会创建Pods.xcodeproj和 .xcworkspace，但这只是该命令的额外产生的，不是主要功能。</em></p></blockquote><h3 id="阶段2：User1-添加一个新的pod"><a href="#阶段2：User1-添加一个新的pod" class="headerlink" title="阶段2：User1 添加一个新的pod"></a>阶段2：User1 添加一个新的pod</h3><p>稍后，<em>user1</em>想要将pod <code>D</code>添加到<code>Podfile</code>。</p><p>因此，他们应该在之后运行<code>pod install</code>，即使pod B的主要人员在第一次执行<code>pod intall</code>后发布了pod的1.1.0版本，该项目仍会继续使用1.0.0版本 - 因为<em>user1</em>只想要添加pod <code>D</code>，不想更新pod <code>B</code>。</p><blockquote><p><em>这就是有些人错误的地方，因为他们在这使用 pod update - 可能会认为“我想用新的pod 来更新项目”？- 而不是使用pod install- 在项目中安装新的pod。</em> </p></blockquote><h3 id="阶段3：User2-加入该项目"><a href="#阶段3：User2-加入该项目" class="headerlink" title="阶段3：User2 加入该项目"></a>阶段3：User2 加入该项目</h3><p>然后，从未参与过该项目的用户2加入该团队。他们克隆仓库然后使用<code>pod install</code>。</p><p><code>Podfile.lock</code>（应该提交到git仓库）的内容将确保他们将获得完全相同的pods，并且使用与user1完全相同的版本。</p><p>即使<code>1.2.0</code>版本的C现在可用，<em>user</em>2也将获得<code>1.0.0</code>版本的<code>C</code>. 因为这是在<code>Podfile.lock</code>中注册的内容。 pod <code>C</code>被<code>Podfile.lock</code>锁定为版本1.0.0（该文件因此得名）。</p><h3 id="阶段4：检查pod的新版本"><a href="#阶段4：检查pod的新版本" class="headerlink" title="阶段4：检查pod的新版本"></a>阶段4：检查pod的新版本</h3><p>稍后，<em>user1</em>需要检查pods是否有可用的更新。他们运行<code>pod outdated</code>这将告诉他们，pod <code>B</code>有一个新<code>1.1.0</code>版本，并且pod <code>C</code>有一个新<code>1.2.0</code>版本。</p><p><em>user1</em>决定他们想更新pod <code>B</code>，而不是pod <code>C</code>; 所以他们运行<strong>pod update B</strong>，它将<code>B</code>从版本<code>1.0.0</code>更新到版本<code>1.1.0</code>（并相应地更新<code>Podfile.lock</code>），但会保持<code>C</code>版本<code>1.0.0</code>（不会更新到<code>1.2.0</code>）。 </p><h2 id="在Podfile中使用精确的版本是不够的"><a href="#在Podfile中使用精确的版本是不够的" class="headerlink" title="在Podfile中使用精确的版本是不够的"></a>在<code>Podfile</code>中使用精确的版本是不够的</h2><p>有些人可能会认为，通过在Podfile中指定Pod的精确版本，例如pod ‘A’，’1.0.0’，足以保证每个用户都拥有与团队中其他人相同的版本。</p><p>然后，他们甚至可以使用<code>pod update</code>，即使只是添加一个新Pod，也认为从来不会有风险更新其他Pod，因为他们在<code>Podfile</code>中固定了pod版本。</p><p>但事实上，这还不足以保证我们上述场景中的user1和user2将始终获得完全相同版本的所有Pod。</p><p>一个典型的例子是，如果pod A依赖于pod A2 - 在A.podspec中声明为依赖关系’A2’，’〜&gt; 3.0’。在这种情况下，在Podfile中使用pod’A’，’1.0.0’，确实会强制user1和user2都使用pod A的版本1.0.0，但是：</p><p>而当user2稍后加入项目时运行pod install时，他们可能会在版本3.5中获得pod A2（因为A2的维护者可能同时发布了新版本）。<br>这就是为什么确保每个团队成员使用每台计算机上所有pod的相同版本的唯一方法是使用Podfile.lock并正确使用pod安装与pod更新。</p><ul><li>user1最终可能会在版本<code>3.4</code>中得到<code>A2</code>（因为那时是A2的最新版本）</li><li>而当user2加入项目后，运行<code>pod install</code>时，他们可能会在版本<code>3.5</code>中获得pod <code>A2</code>（因为A2的维护者可能同时发布了新版本）。</li></ul><p>这就是为什么确保每个团队成员使用每台计算机上所有pod的相同版本的唯一方法是使用Podfile.lock并正确使用<code>pod install</code>与<code>pod update</code>。</p>]]></content>
+      
       <categories>
-        <category>cocoaPods</category>
+          
+          <category> cocoaPods </category>
+          
       </categories>
-      <tags>
-        <tag>cocoaPods</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post 1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+      
+      
+        <tags>
+            
+            <tag> cocoaPods </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/hello-world/"/>
+      <url>/hello-world/</url>
+      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><a id="more"></a><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+      
       <categories>
-        <category>Hexo</category>
+          
+          <category> Hexo </category>
+          
       </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>教程</tag>
-      </tags>
-  </entry>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> 教程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+  
+  
 </search>
