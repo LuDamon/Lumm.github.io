@@ -881,8 +881,7 @@
       <script type="text/javascript">
       function renderGitment(){
         var gitment = new Gitmint({
-            <!-- id: decodeURI(window.location.pathname), -->
-	    id: '{{ page.date }}',
+	    id: md5(window.location.pathname),
             owner: 'LuDamon',
             repo: 'ludamon.github.io',
             
