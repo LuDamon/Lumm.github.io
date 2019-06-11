@@ -633,6 +633,7 @@
 
 
 
+<script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.js"></script> 
 
 
 <!-- LOCAL: You can save these files to your site and update links -->
@@ -650,7 +651,7 @@
       function renderGitment(){
         var gitment = new Gitmint({
             <!-- id: decodeURI(window.location.pathname), -->
-	    id: '{{ page.date }}'
+	    id: '{{ page.date }}',
             owner: 'LuDamon',
             repo: 'ludamon.github.io',
             
