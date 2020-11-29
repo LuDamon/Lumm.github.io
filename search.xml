@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title></title>
+    <url>%2FFailed%20to%20build%20gem%20native%20extension%2F</url>
+    <content type="text"><![CDATA[You need to first open terminal and put this codecurl -L https://get.rvm.io | bash -s stable Then put this commandrvm install &quot;ruby-2.6.3&quot; This would install the ruby for you if it hasn’ t been installed.After this just update the ruby to the new versionrvm use ruby-2.6.3 After this just make ruby 2.6.3 your defaultrvm --default use 2.6.3 This would possibly fix your issue. You can now put the commandsudo gem install cocoapodsAnd the commandpod setup I hope this was useful]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[iOS 添加全局水印]]></title>
     <url>%2FiOS-%E6%B7%BB%E5%8A%A0%E5%85%A8%E5%B1%80%E6%B0%B4%E5%8D%B0%2F</url>
     <content type="text"></content>
