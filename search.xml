@@ -3,7 +3,7 @@
   <entry>
     <title></title>
     <url>%2FFailed%20to%20build%20gem%20native%20extension%2F</url>
-    <content type="text"><![CDATA[You need to first open terminal and put this codecurl -L https://get.rvm.io | bash -s stable Then put this commandrvm install &quot;ruby-2.6.3&quot; This would install the ruby for you if it hasn’ t been installed.After this just update the ruby to the new versionrvm use ruby-2.6.3 After this just make ruby 2.6.3 your defaultrvm --default use 2.6.3 This would possibly fix your issue. You can now put the commandsudo gem install cocoapodsAnd the commandpod setup I hope this was useful]]></content>
+    <content type="text"><![CDATA[title: Failed to build gem native extensiondate: 2020-12-02 9:54:26tags: cocoaPodscategories: cocoaPods You need to first open terminal and put this codecurl -L https://get.rvm.io | bash -s stable Then put this commandrvm install &quot;ruby-2.6.3&quot; This would install the ruby for you if it hasn’ t been installed.After this just update the ruby to the new versionrvm use ruby-2.6.3 After this just make ruby 2.6.3 your defaultrvm --default use 2.6.3 This would possibly fix your issue. You can now put the commandsudo gem install cocoapodsAnd the commandpod setup I hope this was useful]]></content>
   </entry>
   <entry>
     <title><![CDATA[iOS 添加全局水印]]></title>
